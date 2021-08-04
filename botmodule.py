@@ -1,7 +1,8 @@
 from libs.question_funcs import choose_question,result
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
-
+question=""
+answer=""
 #メンションに対する応答
 @respond_to("ハロー")
 def greeting_1(message):
@@ -22,13 +23,16 @@ def question(message):
     message.reply("ちょっとまって")
     data=choose_question()
     message.reply("問題！"+data[0])
-    @respond_to(r".+")
-    def answer(message2):
-        if result(data,message2.body["text"]):
-            message2.reply("正解！")
-            return
-        else:
-            message2.reply("残念")
-            return
+    question=data[0]
+    answer=data[1]
+    
+@respond_to("答えは.+")
+def result_ans(message):
+    if result(answer,message.body["text"]):
+        message.reply("正解！")
+    else:
+        message.reply("残念")
+    question=""
+    answer=""
 
 
