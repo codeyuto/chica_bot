@@ -14,7 +14,6 @@ def greeting_1(message):
 def greeting_2(message):
     message.reply("うるさいわね……")
 
-@respond_to("辛い")
 def greeting_3(message):
     message.reply("ココア入れてあげるから、これ飲んで早く寝なさいな")
 
@@ -27,6 +26,10 @@ def question(message):
     answer=data[1]
     
 @respond_to(".+")
+def choose_action(message):
+    if message.body["text"]=="辛い":
+        greeting_3(message)
+
 def result_ans(message):
     if result(answer,message.body["text"]):
         message.reply("正解！")
