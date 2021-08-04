@@ -17,7 +17,7 @@ def greeting_2(message):
 def greeting_3(message):
     message.reply("ココア入れてあげるから、これ飲んで早く寝なさいな")
 
-def question(message):
+def chicas_question(message):
     global question
     global answer
     message.reply("ちょっとまって")
@@ -37,7 +37,7 @@ def choose_action(message):
         greeting_1(message)
     elif ms=="問題出して":
         message.reply("ふむ")
-        question(message)
+        chicas_question(message)
     elif question!="":
         result_ans(message,answer,ms)
         
