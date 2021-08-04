@@ -50,7 +50,7 @@ def result_ans(message,ans,ms):
     if result(ans,ms):
         message.reply("正解！")
     else:
-        message.reply("残念")
+        message.reply("残念、正解は"+ans+"でした")
     global question
     question=""
     global answer
