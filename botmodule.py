@@ -3,8 +3,8 @@ from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 question=""
 answer=""
-#メンションに対する応答
-@respond_to("ハロー")
+
+
 def greeting_1(message):
     # Slackに応答を返す
     message.reply("あら、こんにちは")
@@ -27,8 +27,11 @@ def question(message):
     
 @respond_to(".+")
 def choose_action(message):
-    if message.body["text"]=="辛い":
+    ms=message.body["text"]
+    if ms=="辛い":
         greeting_3(message)
+    elif ms=="ハロー" or ms=="こんにちは":
+        greeting_1(message)
 
 def result_ans(message):
     if result(answer,message.body["text"]):
