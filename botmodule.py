@@ -26,7 +26,9 @@ def question(message):
     def answer(message2):
         if result(data,message2.body["text"]):
             message2.reply("正解！")
+            return
         else:
             message2.reply("残念")
+            return
 
 
