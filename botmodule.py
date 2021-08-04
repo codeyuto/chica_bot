@@ -26,7 +26,7 @@ def question(message):
     question=data[0]
     answer=data[1]
     
-@respond_to("答えは.+")
+@respond_to(".+")
 def result_ans(message):
     if result(answer,message.body["text"]):
         message.reply("正解！")
