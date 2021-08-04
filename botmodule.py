@@ -29,5 +29,5 @@ def greeting_3(message):
 
 @respond_to("問題出して")
 def question(message):
-    message.send("ちょっとまって")
+    message.reply("ちょっとまって")
     
