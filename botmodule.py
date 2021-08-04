@@ -32,6 +32,9 @@ def choose_action(message):
         greeting_3(message)
     elif ms=="ハロー" or ms=="こんにちは":
         greeting_1(message)
+    else:
+        message.reply("あら？")
+        
 
 def result_ans(message):
     if result(answer,message.body["text"]):
