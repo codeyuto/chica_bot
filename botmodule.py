@@ -36,6 +36,7 @@ def choose_action(message):
     elif ms=="ハロー" or ms=="こんにちは":
         greeting_1(message)
     elif ms=="問題出して":
+        message.reply("ふむ")
         question(message)
     elif question!="":
         result_ans(message,answer,ms)
