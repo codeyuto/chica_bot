@@ -24,7 +24,7 @@ def question(message):
     message.reply("問題！"+data[0])
     @respond_to(r".+")
     def answer(message2):
-        if result(data,message2["body"]):
+        if result(data,message2.body["text"]):
             message2.reply("正解！")
         else:
             message2.reply("残念")
