@@ -25,8 +25,8 @@ def question(message):
     @respond_to(r".+")
     def answer(message2):
         if result(data,message2["body"]):
-            message.reply("正解！")
+            message2.reply("正解！")
         else:
-            message.reply("残念")
+            message2.reply("残念")
 
 
