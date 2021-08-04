@@ -1,6 +1,6 @@
+from libs.question_funcs import choose_question
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
-import random
 
 #メンションに対する応答
 @respond_to("ハロー")
@@ -20,4 +20,6 @@ def greeting_3(message):
 @respond_to("問題出して")
 def question(message):
     message.reply("ちょっとまって")
+    data=choose_question()
+    message.reply("問題！"+data[0])
     
