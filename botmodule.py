@@ -29,11 +29,5 @@ def greeting_3(message):
 
 @respond_to("問題出して")
 def question(message):
-    q,a=choose_question()
-    message.reply("それじゃあ問題。"+q)
-    @respond_to(r'.+')
-    if(message.body["text"]==a):
-        message.reply("正解！")
-    else:
-        message.reply("残念。正解は"+q+"でした。")
+    message.send("ちょっとまって")
     
