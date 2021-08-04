@@ -17,8 +17,9 @@ def greeting_2(message):
 def greeting_3(message):
     message.reply("ココア入れてあげるから、これ飲んで早く寝なさいな")
 
-@respond_to("問題出して")
 def question(message):
+    global question
+    global answer
     message.reply("ちょっとまって")
     data=choose_question()
     message.reply("問題！"+data[0])
@@ -27,21 +28,30 @@ def question(message):
     
 @respond_to(".+")
 def choose_action(message):
+    global question
+    global answer
     ms=message.body["text"]
     if ms=="辛い":
         greeting_3(message)
     elif ms=="ハロー" or ms=="こんにちは":
         greeting_1(message)
+    elif ms=="問題出して":
+        question(message)
+    elif question!="":
+        result_ans(message,answer,ms)
+        
+
     else:
         message.reply("あら？")
         
 
-def result_ans(message):
-    if result(answer,message.body["text"]):
+def result_ans(message,ans,ms):
+    if result(ans,ms):
         message.reply("正解！")
     else:
         message.reply("残念")
+    global question
     question=""
+    global answer
     answer=""
-
 
