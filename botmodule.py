@@ -30,18 +30,17 @@ def chicas_question(message):
 def choose_action(message):
     global question
     global answer
+    functions = {
+    ("辛い","死にたい"): greeting_3,
+    ("ハロー","こんにちは"):greeting_1,
+    ("問題出して"):chicas_question}
     ms=message.body["text"]
-    if ms=="辛い":
-        greeting_3(message)
-    elif ms=="ハロー" or ms=="こんにちは":
-        greeting_1(message)
-    elif ms=="問題出して":
-        message.reply("ふむ")
-        chicas_question(message)
-    elif question!="":
+    for words, function in functions.items():
+        if ms in words:
+            function(message)
+            return
+    if question!="":
         result_ans(message,answer,ms)
-        
-
     else:
         message.reply("あら？")
         
