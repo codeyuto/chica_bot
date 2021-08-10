@@ -1,6 +1,7 @@
 from libs.question_funcs import choose_question,result
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
+from libs.chica_do import choose_do
 question=""
 answer=""
 
@@ -25,6 +26,9 @@ def chicas_question(message):
     message.reply("問題！"+data[0])
     question=data[0]
     answer=data[1]
+def chicas_now(message):
+    now=choose_do()
+    message.reply(now)
     
 @respond_to(".+")
 def choose_action(message):
@@ -33,7 +37,8 @@ def choose_action(message):
     functions = {
     ("辛い","死にたい"): greeting_3,
     ("ハロー","こんにちは"):greeting_1,
-    ("問題出して"):chicas_question}
+    ("問題出して"):chicas_question,
+    ("今何してるの"):chicas_now}
     ms=message.body["text"]
     for words, function in functions.items():
         if ms in words:
