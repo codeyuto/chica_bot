@@ -60,7 +60,7 @@ def choose_action(message):
     ("辛い","死にたい"): greeting_3,
     ("ハロー","こんにちは","おはよう","こんばんは"):greeting_1,
     ("問題出して"):chicas_question,
-    ("今何してるの"):chicas_now
+    ("今何してるの"):chicas_now,
     ("最近の辛いメータ教えて"):tsurai_mater}
     ms=message.body["text"]
     for words, function in functions.items():
