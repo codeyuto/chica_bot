@@ -1,7 +1,7 @@
 import datetime,random
 
 def time_greeting():
-    time=datetime.date.now()
+    time=datetime.datetime.now()
     if(time.hour>=5 and time.hour<=11):
         return random.choice(["おはよう","おはよー"])
     elif(time.hour>=12 and time.hour<=16):
