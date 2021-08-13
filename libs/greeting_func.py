@@ -12,3 +12,8 @@ def time_greeting():
         return random.choice(["こんばんは","(´ぅω・｀)ﾈﾑｲ","zzz..."])
     else:
         return "どうも"
+    
+def announce_time():
+    time=datetime.datetime.now()
+
+    return "今は"+str(time.hour)+"時ね"

@@ -2,7 +2,7 @@ from libs.question_funcs import choose_question,result
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 from libs.chica_do import choose_do
-from libs.greeting_func import time_greeting
+from libs.greeting_func import time_greeting,announce_time
 question=""
 answer=""
 
@@ -11,6 +11,7 @@ def greeting_1(message):
     # Slackに応答を返す
     greeting=time_greeting()
     message.reply(greeting)
+    message.reply(announce_time())
  
 #メンションなしの応答
 @listen_to("わーーーー")
