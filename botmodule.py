@@ -3,7 +3,7 @@ from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 from libs.chica_do import choose_do
 from libs.greeting_func import time_greeting,announce_time
-from libs.tsurai_funcs import return_tsurai
+from libs.tsurai_funcs import return_tsurai,write_tsurai
 question=""
 answer=""
 
@@ -20,6 +20,7 @@ def greeting_2(message):
 
 def greeting_3(message):
     message.reply("ココア入れてあげるから、これ飲んで早く寝なさいな")
+    write_tsurai()
 
 def chicas_question(message):
     global question
