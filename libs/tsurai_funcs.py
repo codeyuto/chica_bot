@@ -5,6 +5,8 @@ import os
 def return_tsurai():
     data=[]
     time_now=datetime.datetime.now()
+    if os.path.exists("tsurai_note.csv")==False:
+        return [0,0,0,0,-1]
     with open("tsurai_note.csv","r",encoding="utf-8") as f:
         reader = csv.reader(f)
         
@@ -46,5 +48,3 @@ def write_tsurai():
         data=[time.year,time.month,time.day,time.hour,time.minute]
         writer = csv.writer(f,delimiter=",")
         writer.writerow(data)
-
-print(return_tsurai())
