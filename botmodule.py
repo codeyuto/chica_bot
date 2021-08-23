@@ -72,7 +72,8 @@ def choose_action(message):
     if question!="":
         result_ans(message,answer,ms)
     else:
-        message.reply(random.choice["ふむ","？","ほう","なるほど","へー","ふーん"])
+        a_m=random.choice["ふむ","？","ほう","なるほど","へー","ふーん"]
+        message.reply(a_m)
         
 
 def result_ans(message,ans,ms):
